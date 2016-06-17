@@ -1,0 +1,112 @@
+﻿@using Diplom.ViewModels.Main.AccountViewModels
+@model RegisterViewModel
+@{
+  ViewBag.Title = "Log in";
+}
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SignUp</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    <script src="~/scripts/plugins/masked/masked.js" type="text/javascript"></script>
+</head>
+
+<body class="white-bg">
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+                <a href="/Home"><h1 class="logo-name">UP </h1></a>
+            </div>
+            <br />
+            <h3>@Resources.Resources.RegisterFormTitle </h3>
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", @autocomplete = "off" }))
+            {
+
+            @Html.AntiForgeryToken()
+            <hr />
+
+                <!--@Html.ValidationSummary("", new { @class = "text-danger" })-->
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormFirstName })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormLastName })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormUserName })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormEmail })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-xs-12">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormPassword})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormConfirmedPassword })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", @placeholder = Resources.Resources.RegisterFormBirthDate })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div align="center" class="col-xs-12" style="">
+                        <div class="col-sm-6 col-xs-6">
+                            @Html.RadioButtonFor(m => m.Gender, Diplom.Domain.Sex.female)
+                            <span>@Resources.Resources.RegisterFormFemale</span>
+                        </div>
+                        <div class="col-sm-6 col-xs-6">
+                            @Html.RadioButtonFor(m => m.Gender, Diplom.Domain.Sex.male)
+                            <span>@Resources.Resources.RegisterFormMale</span>
+                        </div>
+                    </div>
+                </div>
+                <div align="right" class="form-group">
+                    <div style="padding-right:50px">
+                        <input type="submit" class="btn btn-primary" value="Sign Up" />
+                    </div>
+                </div>
+             
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    jQuery(function ($) {
+        $("#BirthDate").mask("99/99/9999", { placeholder: "mm/dd/yyyy" });
+    });
+</script>

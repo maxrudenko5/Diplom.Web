@@ -1,0 +1,166 @@
+﻿@using Diplom.Web.Models
+@model Diplom.ViewModels.Main.HomeViewModels.HomeIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="~/scripts/template/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="~/Content/main.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<body class="homepage">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <div id="header">
+
+            <!-- Inner -->
+            <div class="inner">
+                <header>
+                    <h1><a style="text-shadow: 1px 1px 2px black, 0 0 1em #DF7366;" href="@Url.Action("News","Home")" class="">@Resources.Resources.HomeNewsLink</a></h1>
+                    <hr />
+                    <p style="text-shadow: 1px 1px 2px black, 0 0 1em #DF7366;">@Resources.Resources.HomeTitle @Resources.Resources.HomeTitleLink</p>
+                </header>
+                @*<footer>
+                    <h1><a style="text-shadow: 1px 1px 2px black, 0 0 1em #DF7366;" href="@Url.Action("News","Home")" class="">@Resources.Resources.HomeNewsLink</a></h1>
+                </footer>*@
+            </div>
+
+            <!-- Nav
+            <nav id="nav" style="background-color:black; opacity:0.7">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#">Dropdown</a>
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Magna phasellus</a></li>
+                            <li><a href="#">Etiam dolore nisl</a></li>
+                            <li>
+                                <a href="#">And a submenu &hellip;</a>
+                                <ul>
+                                    <li><a href="#">Lorem ipsum dolor</a></li>
+                                    <li><a href="#">Phasellus consequat</a></li>
+                                    <li><a href="#">Magna phasellus</a></li>
+                                    <li><a href="#">Etiam dolore nisl</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Veroeros feugiat</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="left-sidebar.html">Left Sidebar</a></li>
+                    <li><a href="right-sidebar.html">Right Sidebar</a></li>
+                    <li><a href="no-sidebar.html">No Sidebar</a></li>
+                </ul>
+            </nav>
+                -->
+        </div>
+
+        <!-- Banner -->
+        <section id="banner">
+            <header>
+                <h2>@Resources.Resources.HomeTitle <a href="http://www.kpi.kharkov.ua/ru/home/department/?id=51">@Resources.Resources.HomeTitleLink</a></h2>
+                <p>
+                    @Resources.Resources.HomeSmallTitle <strong><a href="http://www.kpi.kharkov.ua/ru/">@Resources.Resources.HomeSmallTitleLink</a></strong>
+                </p>
+            </header>
+        </section>
+        @if (Model.Teachers.Count > 0)
+        {
+            <!-- Carousel -->
+            <section class="carousel">
+                <div align="center" class="reel">
+                    @foreach (var teacher in Model.Teachers)
+                    {
+                        <article style="width:259px;padding-bottom:15px">
+                            <a href="/SocialSpace/Profile?username=@teacher.UserName" class="image featured" style="width:259px;height:259px;overflow:hidden;margin-bottom:15px;position: relative;"><img style="vertical-align: middle;" src="@teacher.Profile.Photo_200" alt="" /></a>
+                            <header>
+                                <h3 style="overflow:hidden;text-overflow:ellipsis"><a href="/SocialSpace/Profile?username=@teacher.UserName" style="white-space: nowrap;">@teacher.Profile.FullName @teacher.Profile.Patronymic</a></h3>
+                            </header>
+                        </article>
+                    }
+                </div>
+            </section>
+
+        }
+        <!-- Main -->
+        <div class="wrapper style2">
+
+            <article id="main" class="container special">
+                <a href="#" class="image featured"><img src="http://www.profkom-khpi.org/wp-content/uploads/2015/10/IMG_20151006_182429-Pano.jpg" alt="" /></a>
+                <header>
+                    <h2><a href="#">@Resources.Resources.HomeAboutLink</a></h2>
+                    <p>
+                        @Resources.Resources.HomeHeadofDepartment Семенов Сергей Геннадьевич.
+                    </p>
+                </header>
+                <p>
+                    @Resources.Resources.HomeAbout
+                </p>
+                <footer>
+                    <a href="#" class="button">@Resources.Resources.HomeContinueReading</a>
+                </footer>
+            </article>
+
+        </div>
+
+        <!-- Features -->
+        <div class="wrapper style1">
+
+            <section id="features" class="container special">
+                <header>
+                    <h2>@Resources.Resources.HomeProduceTitle</h2>
+                    <p>@Resources.Resources.HomeProduceP</p>
+                </header>
+                <div class="row">
+                    <article class="4u 12u(mobile) special">
+                        <a href="#" class="image featured"><img src="~/Images/computer-connected-to-the-network.png" alt="" /></a>
+                        <header>
+                            <h3><a href="#">@Resources.Resources.HomeComputerSystem</a></h3>
+                        </header>
+                        <p>
+                            @Resources.Resources.HomeComputerSystemDescription
+                        </p>
+                    </article>
+                    <article class="4u 12u(mobile) special">
+                        <a href="#" class="image featured"><img src="~/Images/binary-system.png" alt="" /></a>
+                        <header>
+                            <h3><a href="#">@Resources.Resources.HomeSystemProgramming</a></h3>
+                        </header>
+                        <p>
+                            @Resources.Resources.HomeSystemProgrammingDescription
+                        </p>
+                    </article>
+                    <article class="4u 12u(mobile) special">
+                        <a href="#" class="image featured"><img src="~/Images/monitor-tablet-and-smartohone.png" alt="" /></a>
+                        <header>
+                            <h3><a href="#">@Resources.Resources.HomeSpecializedComputerSystems</a></h3>
+                        </header>
+                        <p>
+                            @Resources.Resources.HomeSpecializedComputerSystemsDescription
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+ 
+  
+
+
+</body>
+@section Scripts {
+
+<script src="~/scripts/template/jquery.dropotron.min.js"></script>
+<script src="~/scripts/template/jquery.scrolly.min.js"></script>
+<script src="~/scripts/template/jquery.onvisible.min.js"></script>
+<script src="~/scripts/template/skel.min.js"></script>
+<script src="~/scripts/template/util.js"></script>
+<!--[if lte IE 8]><script src="~/scripts/template/ie/respond.min.js"></script><![endif]-->
+<script src="~/scripts/template/main.js"></script>
+
+}

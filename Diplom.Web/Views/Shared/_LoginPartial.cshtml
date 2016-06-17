@@ -1,0 +1,13 @@
+﻿@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOut", "Account",new {Area="" }, FormMethod.Post, new {id = "logoutForm", @class = "navbar-right" , @visibility = "hidden" }))
+    {
+      @Html.AntiForgeryToken()
+    }
+    <li><a title="Выйти" href="javascript:document.getElementById('logoutForm').submit()">@Resources.Resources.LoginPartialLogOut</a></li>
+}
+else
+{
+<li id="loginLink"><a title="Войти" href="@Url.Action("Login","Account",new { Area = "" })">@Resources.Resources.LoginPartialSignIn</a></li>
+                                     }
+

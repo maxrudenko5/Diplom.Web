@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="block-header">
+    <h2>Posts</h2>
+</div>
+<div class="card">
+    <div class="card-header">
+        <h2>Add new post</h2>
+    </div>
+
+    <div class="card-body card-padding">
+        <input id="post_title" placeholder="Title" class="form-control" />
+        <br />
+        <textarea id="post_description" placeholder="Description" class="form-control" ></textarea>
+        <br />
+        <div class="html-editor"></div>
+
+        <button onclick="createNews()" type="button">Create</button>
+        <div id="result">
+            <div class="clearfix"></div>
+        </div>
+
+
+        @*<p class="f-500 c-black m-b-5">Click to edit</p>
+            <small>You can edit content on the fly</small>
+
+            <br />
+            <br />
+
+            <div class="m-b-10">
+                <button class="btn btn-primary btn-sm hec-button">Click here to edit the following content</button>
+                <button class="btn btn-success btn-sm hec-save" style="display:none;">Save</button>
+            </div>
+            <div class="html-editor-click">
+                <ol style="text-align: center;"><li><span style="background-color: yellow;">dgsdh</span></li><li><span style="background-color: yellow;">dfhdfh</span><br></li></ol>
+            </div>*@
+    </div>
+</div>
+
+
+
+
+@section Styles {
+    <link href="~/Content/plugins/bootstrap-select.css" rel="stylesheet" />
+    <link href="~/Content/plugins/jquery.nouislider.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/farbtastic.css" rel="stylesheet" />
+    <link href="~/Content/plugins/chosen.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/summernote.css" rel="stylesheet" />
+}
+@section Scripts {
+
+    <script src="~/scripts/vendors/bower_components/bootstrap-select/bootstrap-select.js"></script>
+    <script src="~/scripts/vendors/bower_components/typehead/typeahead.bundle.min.js"></script>
+    <script src="~/scripts/vendors/sumernote/sumernote.js"></script>
+    <script src="~/scripts/vendors/bower_components/chosen/chosen.js"></script>
+    <script src="~/scripts/vendors/fileinput/fileinput.min.js"></script>
+    <script src="~/scripts/vendors/input-mask/input-mask.min.js"></script>
+    <script src="~/scripts/vendors/farbastic/farbastic.js"></script>
+    <script>
+        //$(document).ready(function () {
+
+        //});
+        function createNews() {
+            var news = $('.note-editable').html();
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/SystemAdministration/News/Create",
+            //    data: "htmlnews=" + news.toString(),
+            //});
+            var title=$("#post_title").val();
+            var description=$("#post_description").val();
+            var dataToSend = JSON.stringify({ 'htmlnews': news, 'title': title, 'description': description });
+            
+            $.ajax({
+                url: "/SystemAdministration/News/Create",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: dataToSend, // pass that text to the server as a correct JSON String
+                success: function (result) {
+                    if (result) {
+                        location.reload();
+                    } else { alert("ERROR!"); }
+                },
+                error: function (type) { alert("ERROR!!" + type.responseText); }
+
+            });
+            //$('.note-editable').empty();
+        }
+    </script>
+}

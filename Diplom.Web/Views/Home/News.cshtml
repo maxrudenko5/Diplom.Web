@@ -1,0 +1,98 @@
+﻿@model List<Diplom.Domain.Post>
+@{
+    ViewBag.Title = "News";
+}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--[if lte IE 8]><script src="~/scripts/template/ie/html5shiv.js"></script><![endif]-->
+<link rel="stylesheet" href="~/Content/main.css" />
+<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+<body class="homepage" style="padding-top:90px !important">
+    <div id="page-wrapper">
+        <!-- Main -->
+        @if (Model.Count() == 0)
+        {
+            <article class="container special">
+                <header>
+                    @*<h2><a href="#">@post.Title</a></h2>*@
+                    <p>
+                        No any news :(
+                    </p>
+                </header>
+            </article>
+
+        }
+        @foreach (var post in Model)
+        { 
+        <div id="@post.Id" class="wrapper style2">
+
+            <article class="container special">
+                <header>
+                    @*<h2><a href="#">@post.Title</a></h2>*@
+                    <p>
+                        @post.Title
+                    </p>
+                </header>
+                <div class="col-md-4 col-xs-12">
+                    <a href="#" class="image featured"><img src="@post.ImgLink" alt="" /></a>
+                </div>
+                <div class="col-md-8 col-xs-12">
+                    <p>
+                        @post.Description
+                    </p>
+                </div>
+                <div align="right" class="col-md-3 col-xs-12 pull-right">
+                    <footer>
+                        <a href="@Url.Action("Post","Home",new { id =post.Id})" class="button">Continue Reading</a>
+                    </footer>
+                </div>
+                <div align="right" class="col-md-3 col-xs-12 pull-right">
+                    <footer>
+                        @if (Request.IsAuthenticated && User.IsInRole("ModeratorAccess"))
+                        {
+                            <a onclick="deletePost('@post.Id')" class="button">Delete</a>
+                        }
+                    </footer>
+                </div>
+            </article>
+
+
+        </div>
+        }
+        
+    </div>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="~/scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/scripts/template/jquery.dropotron.min.js"></script>
+    <script src="~/scripts/template/jquery.scrolly.min.js"></script>
+    <script src="~/scripts/template/jquery.onvisible.min.js"></script>
+    <script src="~/scripts/template/skel.min.js"></script>
+    <script src="~/scripts/template/util.js"></script>
+    <!--[if lte IE 8]><script src="~/scripts/template/ie/respond.min.js"></script><![endif]-->
+    <script src="~/scripts/template/main.js"></script>
+    <script>
+        function deletePost(id) {
+            $.ajax({
+                url: '/Home/DeletePost?id=' + id,
+                success: function (data) {
+                    if (data == true) {
+                        $('#' + id).remove();
+                    }
+                }
+            });
+        }
+    </script>
+    @*<script src="~/Scripts/functions.js"></script>*@
+</body>

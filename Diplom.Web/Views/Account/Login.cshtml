@@ -1,0 +1,59 @@
+﻿@using Diplom.ViewModels.Main.AccountViewModels
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+</head>
+
+<body class="white-bg">
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+                <a href="/Home"><h1 class="logo-name">IN</h1></a>
+            </div>
+            <br />
+            <h3>@Resources.Resources.LoginFormTitle </h3>
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "m-t", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = @Resources.Resources.LoginFormUserName })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = @Resources.Resources.LoginFormPassword })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        <label class="control-label">@Resources.Resources.LoginFormRememberMe</label>
+                    </div>
+                </div>
+                <input type="submit" value=@Resources.Resources.LoginFormLoginBtn class="btn btn-primary block full-width m-b" />
+                <a href="/Account/Register" class="link-block">Register</a>
+                <a href="/Account/Register" class="link-block">Forgot your password?</a>
+            }
+        </div>
+    </div>
+</body>
+</html>
+

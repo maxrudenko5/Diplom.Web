@@ -1,0 +1,251 @@
+﻿@using Diplom.ViewModels.Main.AccountViewModels
+@model LoginViewModel
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@Resources.Resources.LoginPartialSignIn</title>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <!-- Vendor CSS -->
+    <link href="~/Content/bower_components/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link href="~/Content/app.min.1.css" rel="stylesheet">
+    <link href="~/Content/app.min.2.css" rel="stylesheet">
+
+</head>
+
+<body class="login-content">
+    <!-- Login -->
+
+    <div class="lc-block toggled" id="l-login">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", id = "loginForm", style = "display:block !important" }))
+        {
+            @Html.AntiForgeryToken()
+            if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+            {
+                <div class="alert alert-danger alert-dismissible" style="text-align:left" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <div>@Html.ValidationMessage("LoginSummary")</div>
+                    <div>@Html.ValidationMessageFor(m => m.Login.Email, "")</div>
+                    <div>@Html.ValidationMessageFor(m => m.Login.Password, "")</div>
+                </div>
+            }
+
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+                <div class="fg-line">
+                    @Html.TextBoxFor(m => m.Login.Email, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormEmail })
+
+                </div>
+            </div>
+
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                <div class="fg-line">
+                    @Html.PasswordFor(m => m.Login.Password, new { @class = "form-control", placeholder = @Resources.Resources.LoginFormPassword })
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="checkbox">
+                <label>
+                    <input id="RememberMe" type="checkbox" value="">
+                    <i class="input-helper"></i>
+                    @Resources.Resources.LoginFormRememberMe
+                </label>
+            </div>
+
+            <a href="javascript:document.getElementById('loginForm').submit()" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+            <div class="col-md-12 p-0 p-t-20">
+                <a href="@Url.Action("LoginIndirect","Account",new {type=Diplom.Domain.LoginType.VK })" class="btn pull-right"><i class="fa fa-vk"></i> Вконтакте</a>
+            </div>
+        }
+        <ul class="login-navigation">
+            <li data-block="#l-register" class="bgm-red">Register</li>
+            <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
+        </ul>
+
+    </div>
+
+    <!-- Register -->
+    <div class="lc-block" id="l-register">
+        @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", id = "registerForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("RegisterSummary", new { @class = "text-danger" })
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                <div class="fg-line">
+                    @Html.TextBoxFor(m => m.Register.FirstName, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormFirstName })
+                </div>
+            </div>
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                <div class="fg-line">
+                    @Html.TextBoxFor(m => m.Register.LastName, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormLastName })
+                </div>
+            </div>
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                <div class="fg-line">
+                    @Html.TextBoxFor(m => m.Register.UserName, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormUserName })
+                </div>
+            </div>
+
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+                <div class="fg-line">
+                    @Html.TextBoxFor(m => m.Register.Email, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormEmail })
+                </div>
+            </div>
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                <div class="fg-line">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = @Resources.Resources.RegisterFormPassword })
+                </div>
+            </div>
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                <div class="fg-line">
+                    @Html.PasswordFor(m => m.Register.ConfirmPassword, new { @class = "form-control", placeholder = "Confirmed password" })
+                </div>
+            </div>
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
+                <div class="dtp-container fg-line">
+                    @Html.TextBoxFor(m => m.Register.BirthDate, new { @class = "form-control mask", placeholder = @Resources.Resources.RegisterFormBirthDate })
+                </div>
+            </div>
+
+            <div align="center" class="col-md-12" style="">
+                <div class="col-xs-6">
+                    @Html.RadioButtonFor(m => m.Register.Gender, Diplom.Domain.Sex.female)
+                    <span>@Resources.Resources.RegisterFormFemale</span>
+                </div>
+                <div class="col-xs-6">
+                    @Html.RadioButtonFor(m => m.Register.Gender, Diplom.Domain.Sex.male)
+                    <span>@Resources.Resources.RegisterFormMale</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        }
+
+
+
+
+        <a href="javascript:document.getElementById('registerForm').submit()" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+
+        <ul class="login-navigation">
+            <li data-block="#l-login" class="bgm-green">Login</li>
+            <li data-block="#l-forget-password" class="bgm-orange">Forgot Password?</li>
+        </ul>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="lc-block" id="l-forget-password">
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Email Address">
+            </div>
+        </div>
+
+        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+
+        <ul class="login-navigation">
+            <li data-block="#l-login" class="bgm-green">Login</li>
+            <li data-block="#l-register" class="bgm-red">Register</li>
+        </ul>
+    </div>
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+        <div class="ie-warning">
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="img/browsers/chrome.png" alt="">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="img/browsers/firefox.png" alt="">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="img/browsers/opera.png" alt="">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="img/browsers/safari.png" alt="">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="img/browsers/ie.png" alt="">
+                            <div>IE (New)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Javascript Libraries -->
+
+    <script src="~/scripts/vendors/bower_components/jquery/jquery.min.js"></script>
+    <script src="~/scripts/vendors/bower_components/bootstrap/bootstrap.min.js"></script>
+
+    <script src="~/scripts/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/scripts/vendors/bower_components/Waves/waves.min.js"></script>
+    <script src="~/scripts/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+
+
+    <script src="~/scripts/vendors/bower_components/moment/moment.min.js"></script>
+    @*<script src="~/scripts/vendors/bower_components/bootstrap-select/bootstrap-select.js"></script>*@
+    <script src="~/scripts/vendors/bower_components/nouislider/jquery.nouislider.all.min.js"></script>
+    <script src="~/scripts/vendors/bootstrap-datetimepicker.min.js"></script>
+    @*<script src="~/scripts/vendors/bower_components/typehead/typehead.js"></script>*@
+    @*<script src="~/scripts/vendors/sumernote/sumernote.js"></script>
+        <script src="~/scripts/vendors/bower_components/chosen/chosen.js"></script>*@
+    <script src="~/scripts/vendors/fileinput/fileinput.min.js"></script>
+    <script src="~/scripts/vendors/input-mask/input-mask.min.js"></script>
+    @*<script src="~/scripts/vendors/farbastic/farbastic.js"></script>*@
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+    <script src="~/scripts/functions.js"></script>
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery(".mask").mask("00/00/0000");
+        });
+    </script>
+
+</body>
+</html>

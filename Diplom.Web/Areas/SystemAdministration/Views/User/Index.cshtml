@@ -1,0 +1,94 @@
+﻿@model List<Diplom.Domain.User>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<div class="block-header">
+    <h2>Users</h2>
+
+</div>
+<div class="card">
+    <div class="card-header">
+        <a href="/SystemAdministration/User/Add" class="btn btn-primary waves-effect">Add User</a>
+    </div>
+    <div class="table-responsive">
+        <table id="data-table-users" class="table table-striped table-vmiddle bootgrid-table">
+            <thead>
+                <tr>
+                    <th data-column-id="Id" data-visible="false">Id</th>
+                    <th data-column-id="LoginType">LoginType</th>
+                    <th data-column-id="UserName">UserName</th>
+                    <th data-column-id="Email">Email</th>
+                    <th data-column-id="Role" data-formatter="Role">Role</th>
+                    <th data-column-id="CreationDate" data-order="desc">CreationDate</th>
+                    <th data-column-id="isActive" data-formatter="isActive">isActive</th>
+                    <th data-column-id="Actions" data-formatter="Actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.LoginType</td>
+                        <td>@item.UserName.ToLower()</td>
+                        <td>@item.Email</td>
+                        <td>@item.Role.Name</td>
+                        <td>@item.CreationDate.ToShortTimeString() @item.CreationDate.ToShortDateString()</td>
+                        <td>@item.isActive</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/scripts/vendors/bootgrid/jquery.bootgrid.updated.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //Command Buttons
+            $("#data-table-users").bootgrid({
+                css: {
+                    icon: 'zmdi icon',
+                    iconColumns: 'zmdi-view-module',
+                    iconDown: 'zmdi-expand-more',
+                    iconRefresh: 'zmdi-refresh',
+                    iconUp: 'zmdi-expand-less'
+                },
+                formatters: {
+                    "isActive": function (column, row) {
+                        if (row.isActive=="True") {
+                            return "<input checked onchange =\"lockChanged('" + row.Id + "');\"  id=\"checkboxLock" + row.Id + "\" type=\"checkbox\" >";
+                        } else {
+                            return "<input onchange =\"lockChanged('" + row.Id + "')\"  id=\"checkboxLock" + row.Id + "\" type=\"checkbox\" >";
+                        }
+                    },
+                    "Actions": function (column, row) {
+                        return "<a href=\"/SystemAdministration/User/Edit?id=" + row.Id + "\" type=\"button\" class=\"btn btn-icon btn-link command-refresh waves-effect waves-circle grey-link\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-edit\"></span></a> " +
+                            "<a href=\"/SystemAdministration/User/EditProfile?id=" + row.Id + "\" type=\"button\" class=\"btn btn-icon btn-link command-refresh waves-effect waves-circle grey-link\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-pin-account\"></span></a> ";
+                        //"<a href=\"/SystemAdministration/User/Deactivate?id=" + row.Id + "\" type=\"button\" class=\"btn btn-icon btn-link command-refresh waves-effect waves-circle grey-link\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-delete\"></span></a> ";
+                    }
+                }
+            })
+
+        });
+        function lockChanged(Id) {
+            $.ajax({
+                dataType: "json",
+                url: "/SystemAdministration/User/ChangeActive/?id=" + Id,
+            });
+        }
+    </script>
+
+}
+
+
+
+
+

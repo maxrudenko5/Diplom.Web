@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DataTableActionsAddToolsGroup" xml:space="preserve">
+    <value>Add in Group</value>
+  </data>
+  <data name="DataTableActionsDeactivate" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="DataTableActionsDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="DataTableActionsEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="DataTableActionsView" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="DataTableHederTextAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="DataTableHederTextBrand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="DataTableHederTextCategory" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="DataTableHederTextDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="DataTableHederTextImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="DataTableHederTextModel" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="DataTableHederTextName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="DataTableHederTextUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="DataTableHederTextUserRole" xml:space="preserve">
+    <value>User Role</value>
+  </data>
+  <data name="DataTablesEmptyTable" xml:space="preserve">
+    <value>No data available in table</value>
+  </data>
+  <data name="DataTablesFirst" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="DataTablesInfo" xml:space="preserve">
+    <value>Showing _START_ to _END_ of _TOTAL_ entries</value>
+  </data>
+  <data name="DataTablesInfoEmpty" xml:space="preserve">
+    <value>Showing 0 to 0 of 0 entries</value>
+  </data>
+  <data name="DataTablesInfoFiltered" xml:space="preserve">
+    <value>(filtered from _MAX_ total entries)</value>
+  </data>
+  <data name="DataTablesInfoPostFix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DataTablesInfoThousands" xml:space="preserve">
+    <value>,</value>
+  </data>
+  <data name="DataTablesLast" xml:space="preserve">
+    <value>Last</value>
+  </data>
+  <data name="DataTablesLengthMenu" xml:space="preserve">
+    <value>Show _MENU_ entries</value>
+  </data>
+  <data name="DataTablesLoadingRecords" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="DataTablesNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="DataTablesPrevious" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="DataTablesProcessing" xml:space="preserve">
+    <value>Processing...</value>
+  </data>
+  <data name="DataTablesSearch" xml:space="preserve">
+    <value>Search:</value>
+  </data>
+  <data name="DataTablesSortAscending" xml:space="preserve">
+    <value>: activate to sort column ascending</value>
+  </data>
+  <data name="DataTablesSortDescending" xml:space="preserve">
+    <value>: activate to sort column descending</value>
+  </data>
+  <data name="DataTablesZeroRecords" xml:space="preserve">
+    <value>No matching records found</value>
+  </data>
+  <data name="DropDownListSelectValue" xml:space="preserve">
+    <value>Select Value</value>
+  </data>
+  <data name="EditBtn" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="HeaderChangeLanguageEnglish" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="HeaderChangeLanguageRussian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="HeaderChangeLanguageText" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="HeaderSearchPlaceholder" xml:space="preserve">
+    <value>Search for something...</value>
+  </data>
+  <data name="HomeAbout" xml:space="preserve">
+    <value>The department was founded in 1961, is one of the earliest and leading departments in Ukraine for training specialists (programmers, system programmers, system administrators) in the field of computer systems and networks, software and hardware of computers, specialized computer systems, including health care and medical institutions. Training is conducted in conjunction with leading software developers in Ukraine to set out the latest technology to create a modern software development and implementation of real customers all over the world, without interrupting the learning process. Our graduates are successfully working system programmers, leading programmers 1C-programmers, system analysts, system and network administrators, developers of Web-based applications, the Web-designers, database administrators, developers of complex wireless devices as well as devices based on microcontrollers, information developers systems, testers, communications specialists, managers IT-departments and computer security departments, as well as take other positions requiring high-quality education in the field of information technology.</value>
+  </data>
+  <data name="HomeAboutLink" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="HomeComputerSystem" xml:space="preserve">
+    <value>Computer systems and networks</value>
+  </data>
+  <data name="HomeComputerSystemDescription" xml:space="preserve">
+    <value>Education was opened in 1961. It is possible to budget and contract training for full-time and part-time form ..</value>
+  </data>
+  <data name="HomeContinueReading" xml:space="preserve">
+    <value>Continue Reading</value>
+  </data>
+  <data name="HomeHeadofDepartment" xml:space="preserve">
+    <value>Head of Department:</value>
+  </data>
+  <data name="HomeLinkAccount" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="HomeLinkProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="HomeLinkSystemAdministration" xml:space="preserve">
+    <value>System Administration</value>
+  </data>
+  <data name="HomeLogoText" xml:space="preserve">
+    <value>CEP</value>
+  </data>
+  <data name="HomeMenuLink" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="HomeNewsLink" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="HomeProduceP" xml:space="preserve">
+    <value>The department trains specialists in the following areas</value>
+  </data>
+  <data name="HomeProduceTitle" xml:space="preserve">
+    <value>Produce special and specialization</value>
+  </data>
+  <data name="HomeSmallTitle" xml:space="preserve">
+    <value>National Technical University</value>
+  </data>
+  <data name="HomeSmallTitleLink" xml:space="preserve">
+    <value>"Kharkiv Polytechnic Institute"</value>
+  </data>
+  <data name="HomeSpecializedComputerSystems" xml:space="preserve">
+    <value>Specialized computer systems</value>
+  </data>
+  <data name="HomeSpecializedComputerSystemsDescription" xml:space="preserve">
+    <value>Function was discovered in 1991 year. It is possible to budget and contract training full-time ..</value>
+  </data>
+  <data name="HomeSystemProgramming" xml:space="preserve">
+    <value>System Programming</value>
+  </data>
+  <data name="HomeSystemProgrammingDescription" xml:space="preserve">
+    <value>Education was opened in 1961. It is possible to budget and contract training for full-time and part-time form ..</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Chair</value>
+  </data>
+  <data name="HomeTitleLink" xml:space="preserve">
+    <value>"Computer Engineering and Programming"</value>
+  </data>
+  <data name="LanguageIconLink" xml:space="preserve">
+    <value>http://www.kpi.kharkov.ua/layout/images/lang/en.png</value>
+  </data>
+  <data name="LanguageName" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LanguageShortName" xml:space="preserve">
+    <value>EN</value>
+  </data>
+  <data name="LoginFormLoginBtn" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
+  <data name="LoginFormPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginFormRememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="LoginFormTitle" xml:space="preserve">
+    <value>Welcome To Login page</value>
+  </data>
+  <data name="LoginFormUnknownLogin" xml:space="preserve">
+    <value>Unknown User Name or Password</value>
+  </data>
+  <data name="LoginFormUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="LoginPartialLogOut" xml:space="preserve">
+    <value>LogOut</value>
+  </data>
+  <data name="LoginPartialSignIn" xml:space="preserve">
+    <value>SignIn</value>
+  </data>
+  <data name="ModalDeactivateConfirmationDeactivateBtn" xml:space="preserve">
+    <value>Deactivate</value>
+  </data>
+  <data name="ModalDeactivateConfirmationMessage" xml:space="preserve">
+    <value>You are about to diactivate one track.</value>
+  </data>
+  <data name="ModalDeactivateConfirmationQuestion" xml:space="preserve">
+    <value>Do you want to proceed?</value>
+  </data>
+  <data name="ModalDeactivateConfirmationTitle" xml:space="preserve">
+    <value>Confirm Deactivate</value>
+  </data>
+  <data name="ModalDeleteConfirmationCancelBtn" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ModalDeleteConfirmationDeleteBtn" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ModalDeleteConfirmationMessage" xml:space="preserve">
+    <value>You are about to delete one track, this procedure is irreversible.</value>
+  </data>
+  <data name="ModalDeleteConfirmationQuestion" xml:space="preserve">
+    <value>Do you want to proceed?</value>
+  </data>
+  <data name="ModalDeleteConfirmationTitle" xml:space="preserve">
+    <value>Confirm Delete</value>
+  </data>
+  <data name="ProfileAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ProfileAcademicDegree" xml:space="preserve">
+    <value>Academic Degree</value>
+  </data>
+  <data name="ProfileAddToFriends" xml:space="preserve">
+    <value>Add to friends</value>
+  </data>
+  <data name="ProfileBasicInformation" xml:space="preserve">
+    <value>Basic Information</value>
+  </data>
+  <data name="ProfileBitrthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="ProfileCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ProfileConnected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="ProfileConnections" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="ProfileContacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ProfileDeleteFromFriends" xml:space="preserve">
+    <value>Delete from friends</value>
+  </data>
+  <data name="ProfileDiscipline" xml:space="preserve">
+    <value>Discipline</value>
+  </data>
+  <data name="ProfileEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ProfileFullName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="ProfileGender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="ProfileInfoScientificTitle" xml:space="preserve">
+    <value>Info Scientific Title</value>
+  </data>
+  <data name="ProfileMobilePhone" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
+  <data name="ProfilePatronymic" xml:space="preserve">
+    <value>Patronymic</value>
+  </data>
+  <data name="ProfilePhotos" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="ProfilePost" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="ProfileRejectSubscription" xml:space="preserve">
+    <value>Reject subscription</value>
+  </data>
+  <data name="ProfileSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ProfileScientificInterests" xml:space="preserve">
+    <value>Scientific Interests</value>
+  </data>
+  <data name="ProfileScientificTitle" xml:space="preserve">
+    <value>Scientific Title</value>
+  </data>
+  <data name="ProfileSkype" xml:space="preserve">
+    <value>Skype</value>
+  </data>
+  <data name="ProfileSubscribers" xml:space="preserve">
+    <value>Subscribers</value>
+  </data>
+  <data name="ProfileSubscriptions" xml:space="preserve">
+    <value>Subscriptions</value>
+  </data>
+  <data name="ProfileTeacherInformation" xml:space="preserve">
+    <value>Teacher information</value>
+  </data>
+  <data name="ProfileTimeline" xml:space="preserve">
+    <value>Timeline</value>
+  </data>
+  <data name="ProfileTotalConnections" xml:space="preserve">
+    <value>Total Connections</value>
+  </data>
+  <data name="ProfileUpdateProfilePicture" xml:space="preserve">
+    <value>Update Profile Picture</value>
+  </data>
+  <data name="RegisterFormBirthDate" xml:space="preserve">
+    <value>Birth Date</value>
+  </data>
+  <data name="RegisterFormConfirmedPassword" xml:space="preserve">
+    <value>Confirmed Password</value>
+  </data>
+  <data name="RegisterFormEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="RegisterFormError" xml:space="preserve">
+    <value>UserName has already exist</value>
+  </data>
+  <data name="RegisterFormFemale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="RegisterFormFirstName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="RegisterFormLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="RegisterFormLoginBtn" xml:space="preserve">
+    <value>SignUp</value>
+  </data>
+  <data name="RegisterFormMale" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="RegisterFormPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RegisterFormRememberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="RegisterFormTitle" xml:space="preserve">
+    <value>Welcome To Register page</value>
+  </data>
+  <data name="RegisterFormUserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="UserActionLink" xml:space="preserve">
+    <value>Users</value>
+  </data>
+</root>

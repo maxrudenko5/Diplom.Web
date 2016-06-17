@@ -1,0 +1,67 @@
+﻿@model Diplom.ViewModels.SystemAdministration.Role.AddRoleViewModel
+
+@{
+    ViewBag.Title = "Add Role";
+}
+<div class="block-header">
+    <h2>Role</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body card-padding">
+            <div class="form-horizontal">
+                <h4>Edit Role</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-5">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Permission.StudentAccess, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-5">
+                        @Html.CheckBoxFor(model => model.Permission.StudentAccess, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Permission.StudentAccess, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Permission.TeacherAccess, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-6">
+                        @Html.CheckBoxFor(model => model.Permission.TeacherAccess, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Permission.TeacherAccess, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Permission.ModeratorAccess, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-6">
+                        @Html.CheckBoxFor(model => model.Permission.ModeratorAccess, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Permission.ModeratorAccess, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Permission.SystemAdministrationAccess, htmlAttributes: new { @class = "control-label col-sm-3" })
+                    <div class="col-sm-6">
+                        @Html.CheckBoxFor(model => model.Permission.SystemAdministrationAccess, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Permission.SystemAdministrationAccess, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-6">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

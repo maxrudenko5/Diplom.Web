@@ -1,0 +1,57 @@
+﻿
+<nav id="nav" style="background-color:#03A9F4; opacity:1; color:white">
+    <ul>
+        <li><a href="/Home/Index">Home</a></li>
+        <li>
+            <a href="#">@Resources.Resources.HomeMenuLink</a>
+            <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Magna phasellus</a></li>
+                <li><a href="#">Etiam dolore nisl</a></li>
+                <li>
+                    <a href="#">And a submenu &hellip;</a>
+                    <ul>
+                        <li><a href="#">Lorem ipsum dolor</a></li>
+                        <li><a href="#">Phasellus consequat</a></li>
+                        <li><a href="#">Magna phasellus</a></li>
+                        <li><a href="#">Etiam dolore nisl</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Veroeros feugiat</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#"><span style="color:transparent !important; background:no-repeat; background-color:transparent; background-image:url(/Images/globe-1.png);background-size:contain">lang-</span>@Resources.Resources.LanguageShortName<b class="caret"></b></a>
+            <ul>
+                <li><a href="@Url.Action("Change", "Localization", new { lang = "ru" })" style="outline:none;max-width:30px;max-height:30px;padding-left:35px;  background:no-repeat;background-image:url(http://www.kpi.kharkov.ua/layout/images/lang/ru.png);">Русский</a></li>
+                <li><a href="@Url.Action("Change", "Localization", new { lang = "en" })" style="outline:none; max-width:30px;max-height:30px;padding-left:35px; background:no-repeat;background-image:url(http://www.kpi.kharkov.ua/layout/images/lang/en.png);">English</a></li>
+            </ul>
+        </li>
+        @if (Request.IsAuthenticated)
+        {
+            <li>
+
+                <a href="#">@Resources.Resources.HomeLinkAccount</a>
+                <ul>
+                    <li><a href="@Url.Action("Index","Profile",new {Area="SocialSpace" })">@Resources.Resources.HomeLinkProfile</a></li>
+                    @if (Request.IsAuthenticated && User.IsInRole("SystemAdministrationAccess"))
+                    {
+                    <li><a href="@Url.Action("Index", "User", new { Area = "SystemAdministration" })">@Resources.Resources.HomeLinkSystemAdministration</a></li>
+                    }
+                    @Html.Partial("_LoginPartial")
+                </ul>
+
+
+            </li>
+        }
+        else
+        {
+            @Html.Partial("_LoginPartial")
+        }
+
+
+
+
+    </ul>
+</nav>

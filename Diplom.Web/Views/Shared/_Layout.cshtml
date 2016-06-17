@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/modernizr-2.6.2.js"></script>
+    @System.Web.Optimization.Styles.Render("~/font-awesome/css")
+</head>
+<body>
+   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Выйти</a></li>
+                    </ul>
+                    }
+                }
+                else
+                {
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    <li class="dropdown pull-right " style="overflow:visible">
+                        <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown"><img src="@Resources.Resources.LanguageIconLink" />@Resources.Resources.LanguageName<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="overflow:hidden">
+                            <li style="width:100%;"><a href="@Url.Action("Change", "Localization", new { lang = "ru" })" style="outline:none;max-width:30px;max-height:30px;padding-left:35px;  background:no-repeat;background-image:url(http://www.kpi.kharkov.ua/layout/images/lang/ru.png);">Русский</a></li>
+                            <li style="width:100%;"><a href="@Url.Action("Change", "Localization", new { lang = "en" })" style="outline:none; max-width:30px;max-height:30px;padding-left:35px; background:no-repeat;background-image:url(http://www.kpi.kharkov.ua/layout/images/lang/en.png);">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                
+                
+                }
+
+            </div>
+        </div>
+    </div>-->
+  @Html.Partial("_Navbar")
+
+        @RenderBody()
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+
+                <!-- Tweets -->
+                <section class="4u 12u(mobile)">
+                    <header>
+                        <h2 class="icon fa-twitter circled"><span class="label">Tweets</span></h2>
+                    </header>
+                    <ul class="divided">
+                        <li>
+                            <article class="tweet">
+                                Amet nullam fringilla nibh nulla convallis tique ante sociis accumsan.
+                                <span class="timestamp">5 minutes ago</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="tweet">
+                                Hendrerit rutrum quisque.
+                                <span class="timestamp">30 minutes ago</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="tweet">
+                                Curabitur donec nulla massa laoreet nibh. Lorem praesent montes.
+                                <span class="timestamp">3 hours ago</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="tweet">
+                                Lacus natoque cras rhoncus curae dignissim ultricies. Convallis orci aliquet.
+                                <span class="timestamp">5 hours ago</span>
+                            </article>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Posts -->
+                <section class="4u 12u(mobile)">
+                    <header>
+                        <h2 class="icon fa-file circled"><span class="label">Posts</span></h2>
+                    </header>
+                    <ul class="divided">
+                        <li>
+                            <article class="post stub">
+                                <header>
+                                    <h3><a href="#">Nisl fermentum integer</a></h3>
+                                </header>
+                                <span class="timestamp">3 hours ago</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="post stub">
+                                <header>
+                                    <h3><a href="#">Phasellus portitor lorem</a></h3>
+                                </header>
+                                <span class="timestamp">6 hours ago</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="post stub">
+                                <header>
+                                    <h3><a href="#">Magna tempus consequat</a></h3>
+                                </header>
+                                <span class="timestamp">Yesterday</span>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="post stub">
+                                <header>
+                                    <h3><a href="#">Feugiat lorem ipsum</a></h3>
+                                </header>
+                                <span class="timestamp">2 days ago</span>
+                            </article>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Photos -->
+                <section class="4u 12u(mobile)">
+                    <header>
+                        <h2 class="icon fa-send circled"><span class="label">Get in touch</span></h2>
+                    </header>
+                    <div align="center" class="col-md-12" style="color:black !important">
+                        <form method="post" action="#">
+                            <input style="margin-bottom:15px;width:100% !important" type="text" name="name" id="name" placeholder="Name">
+                            <input style="margin-bottom:15px" type="email" name="email" id="email" placeholder="Email">
+                            <div style="margin-bottom:15px" class="textarea-wrapper"><textarea name="message" id="message" placeholder="Message" rows="1" style="overflow: hidden; resize: none; height: 69px;"></textarea></div>
+
+                            <ul class="actions">
+                                <li><input type="submit" value="Send" class="special"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </section>
+
+            </div>
+            <hr />
+            <div class="row">
+                <div class="12u">
+
+                    <!-- Contact -->
+                    <section class="contact">
+                        <header>
+                            <h3>Nisl turpis nascetur interdum?</h3>
+                        </header>
+                        <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+                        <ul class="icons">
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+                            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                            <li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        </ul>
+                    </section>
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <ul class="menu">
+                            <li>&copy; Untitled. All rights reserved.</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="~/scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/pageloader.js"></script>
+@if (IsSectionDefined("scripts"))
+{
+    @RenderSection("scripts", required: false)
+}
+</body>
+</html>

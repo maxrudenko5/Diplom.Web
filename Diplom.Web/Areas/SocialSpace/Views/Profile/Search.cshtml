@@ -1,0 +1,126 @@
+﻿@model Diplom.ViewModels.SocialSpace.SearchProfileViewModel
+@{
+    ViewBag.Title = "Search";
+}
+
+
+<div class="block-header">
+    <h2>Search<small>Search more friends</small></h2>
+
+    <ul class="actions m-t-20 hidden-xs">
+        <li class="dropdown">
+            <a href="" data-toggle="dropdown">
+                <i class="zmdi zmdi-more-vert"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                    <a href="">Privacy Settings</a>
+                </li>
+                <li>
+                    <a href="">Account Settings</a>
+                </li>
+                <li>
+                    <a href="">Other Settings</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<div class="card">
+    <div class="lv-header-alt clearfix m-b-5">
+        <h2 class="lvh-label hidden-xs">@Model.Users.Count users</h2>
+        @using (Html.BeginForm("Search", "Profile", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="lvh-search">
+                <input id="searchQuery" name="searchQuery" placeholder="Search..." class="lvhs-input" type="text">
+
+                <i class="lvh-search-close">×</i>
+            </div>
+        }
+        <ul class="lv-actions actions">
+            <li>
+                <a href="" class="lvh-search-trigger">
+                    <i class="zmdi zmdi-search"></i>
+                </a>
+            </li>
+            @*<li>
+                <a href="">
+                    <i class="zmdi zmdi-time"></i>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="" data-toggle="dropdown" ="" ="" aria-expanded="false" aria-haspopup="true">
+                    <i class="zmdi zmdi-sort"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Last Modified</a>
+                    </li>
+                    <li>
+                        <a href="">Last Edited</a>
+                    </li>
+                    <li>
+                        <a href="">Name</a>
+                    </li>
+                    <li>
+                        <a href="">Date</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">
+                    <i class="zmdi zmdi-info"></i>
+                </a>
+            </li>*@
+            <li class="dropdown">
+                <a href="" data-toggle="dropdown" ="" ="" aria-expanded="false" aria-haspopup="true">
+                    <i class="zmdi zmdi-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a href="">Refresh</a>
+                    </li>
+                    <li>
+                        <a href="">Settings</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="card-body card-padding">
+
+        <div class="contacts clearfix row">
+            @foreach (var user in Model.Users)
+            {
+                <div class="col-md-2 col-sm-4 col-xs-6">
+                    <div class="c-item">
+                        <a href="/SocialSpace/Profile?username=@user.Username" class="ci-avatar">
+                            @*<img src="@user.Photo_200" alt="">*@
+                            <div class="responsive-box">
+                                <div class="content"><img class="img-responsive" src="@user.Photo_200" /></div>
+                            </div>
+                        </a>
+                       
+
+                        <div class="c-info">
+                            <strong>@user.FullName</strong>
+                            <small>@user.Username</small>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>

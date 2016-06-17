@@ -1,0 +1,107 @@
+﻿@model Diplom.ViewModels.SystemAdministration.User.AddUserViewModel
+
+@{
+    ViewBag.Title = "Add";
+}
+<div class="block-header">
+    <h2>User</h2>
+</div>
+
+<div class="card">
+    <div class="card-header">
+     
+    </div>
+    <div class="card-body card-padding">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>New User</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control form-control text-box single-line" } })
+                        @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="col-md-2">
+                            @Html.RadioButtonFor(m => m.Sex, Diplom.Domain.Sex.female)
+                            <span>@Resources.Resources.RegisterFormFemale</span>
+                        </div>
+                        <div class="col-md-2">
+                            @Html.RadioButtonFor(m => m.Sex, Diplom.Domain.Sex.male)
+                            <span>@Resources.Resources.RegisterFormMale</span>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedRoleId, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(x => x.SelectedRoleId, Model.AllExitstRoles.Select(x => new SelectListItem() { Text = x.Name, Value = x.Id }).ToList(), Resources.Resources.DropDownListSelectValue, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SelectedRoleId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/scripts/plugins/masked/masked.js"></script>
+    <script src="~/scripts/app/SystemAdministration/User/Add.js"></script>
+}

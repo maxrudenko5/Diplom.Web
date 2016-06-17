@@ -1,0 +1,49 @@
+﻿
+<aside id="sidebar" class="sidebar c-overflow">
+    <div class="profile-menu">
+        <a href="">
+            <div class="profile-pic">
+                <img id="my_img_profile" style="background-color:white" src="~/Images/profile-pics/1.jpg" alt="">
+            </div>
+
+            <div class="profile-info">
+                <span id="my_username"></span>
+
+                <i class="zmdi zmdi-caret-down"></i>
+            </div>
+        </a>
+
+        <ul class="main-menu">
+            <li>
+                <a href="/SocialSpace/Profile"><i class="zmdi zmdi-account"></i> View Profile</a>
+            </li>
+            <li>
+                <a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
+            </li>
+            <li>
+                <a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="zmdi zmdi-time-restore"></i> @Resources.Resources.LoginPartialLogOut</a>
+            </li>
+        </ul>
+    </div>
+    @using (Html.BeginForm("LogOut", "Account", new { Area = "" }, FormMethod.Post, new { Area = "", id = "logoutForm", @class = "navbar-right", @visibility = "hidden" }))
+    {
+        @Html.AntiForgeryToken()
+    }
+    <ul class="main-menu">
+        <li class=""><a href="@Url.Action("Index","Home",new {Area="" })"><i class="zmdi zmdi-home"></i> Home</a></li>
+        <li class="active"><a href="@Url.Action("Index","Profile",new {Area="" })"><i class="zmdi zmdi-account"></i> Profile</a></li>
+        <li class=""><a href="@Url.Action("Index","Message",new {Area="" })"><i class="zmdi zmdi-email"></i> Messages</a></li>
+        @*<li class="sub-menu">
+            <a href=""><i class="zmdi zmdi-widgets"></i> Widgets</a>
+
+            <ul>
+                <li><a href="widget-templates.html">Templates</a></li>
+                <li><a href="widgets.html">Widgets</a></li>
+            </ul>
+        </li>*@
+       
+    </ul>
+</aside>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Diplom.Domain.User>
+
+
+@foreach (var item in Model)
+{
+    <div id="@item.Id" class="col-md-3 col-sm-4 col-xs-6">
+        <div class="c-item">
+            <a href="@Url.Action("Index","Profile",new {Area="SocialSpace",username=item.UserName })" class="ci-avatar">
+                <div class="responsive-box">
+                    <div class="content"><img class="img-responsive" src="@item.Profile.Photo_200" /></div>
+                </div>
+                @*<img src="https://pp.vk.me/c627717/v627717923/21f00/WOyfs_TtNU0.jpg" alt="">*@
+            </a>
+
+            <div class="c-info">
+                <strong>@item.UserName</strong>
+                <small>@item.Profile.FullName</small>
+            </div>
+
+            <div class="c-footer">
+                <button onclick="friendsDelete('@item.Id')" class="waves-effect"><i class="zmdi zmdi-face-add"></i> @Resources.Resources.ProfileDeleteFromFriends</button>
+            </div>
+        </div>
+    </div>
+}
